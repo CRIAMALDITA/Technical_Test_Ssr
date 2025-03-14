@@ -1,0 +1,14 @@
+<div class="formContainer">
+<h3>Add Client:</h3>
+<form [formGroup]="clientForm" (ngSubmit)="saveclient()">
+    <div class="form-input">
+        <label for="nombre">Name</label>
+        <input id="nombre" type="text" pInputText formControlName="name" />
+    </div>
+    <div class="form-input">
+        <label for="email   ">Email</label>
+        <input id="email" type="email" pInputText formControlName="email" />
+    </div>
+    <button pButton type="submit" label="Add"></button>
+</form>
+</div>

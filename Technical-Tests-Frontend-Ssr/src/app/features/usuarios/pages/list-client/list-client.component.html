@@ -1,0 +1,42 @@
+<div class="clientsContainer" *ngIf="!(showRemoved$ | async)">
+<h3>Filter:</h3>
+<div class="search-container">
+    <span class="p-input-icon-left search-bar">
+        <i class="pi pi-search"></i>
+        <input type="text" pInputText [formControl]="filterControl" placeholder="Search" (input)="filter($event)">
+    </span>
+    <span class="RemoveListBtn">
+        <button class="removeBtn" pButton type="button" label="Show Removed List" (click)="onRemoveBtn()"></button>
+    </span>
+</div>
+<p-table #dt [value]="(filteredClients$ | async) || []" [paginator]="true" [rows]="5">
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+            <th pSortableColumn="email">Email <p-sortIcon field="email"></p-sortIcon></th>
+            <th>Actions</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-client>
+        <tr>
+            <td>{{ client.name }}</td>
+            <td>{{ client.email }}</td>
+            <td class="listBtns">
+                <button pButton label="Edit" icon="pi pi-pencil" (click)="editclient(client)"></button>
+                <button class="removeBtn" pButton label="" icon="pi pi-trash" (click)="deleteclient(client.idClient)"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+</div>
+<p-dialog [(visible)]="editMode" header="Edit client" [modal]="true">
+    <form [formGroup]="clientEditForm" (ngSubmit)="updateclient()">
+        <label for="name">Name</label>
+        <input id="name" type="text" pInputText formControlName="name" required />
+     
+        <label for="email">Email</label>
+        <input id="email" type="email" pInputText formControlName="email" required />
+     
+        <button class="EditBtn" pButton type="submit" label="Guardar"></button>
+     </form>
+  </p-dialog>

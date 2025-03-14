@@ -1,0 +1,13 @@
+<form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="login-form">
+    <span class="p-input-icon-left">
+      <i class="pi pi-client"></i>
+      <input type="text" pInputText formControlName="clientname" placeholder="Usuario" />
+    </span>
+  
+    <span class="p-input-icon-left">
+      <i class="pi pi-lock"></i>
+      <input type="password" pInputText formControlName="password" placeholder="Contraseña" />
+    </span>
+  
+    <button pButton type="submit" label="Login" class="p-button-raised p-button-primary"></button>
+  </form>
