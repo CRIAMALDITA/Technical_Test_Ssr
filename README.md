@@ -1,11 +1,11 @@
-#ABM de Clientes - Proyecto Web Full Stack
+# ABM de Clientes - Proyecto Web Full Stack
 
 Este es un proyecto web full stack que permite gestionar clientes a través de una aplicación ABM (Alta, Baja y Modificación).
 Está construido con Angular en el frontend y .NET Core con Entity Framework y MySQL en el backend.
 
 El código también contiene rastros de un sistema de autenticación (Login) que no llegó a implementarse, pero podría expandirse en el futuro.
 
-#Tecnologías Utilizadas
+# Tecnologías Utilizadas
 
 Frontend (Angular)
 
